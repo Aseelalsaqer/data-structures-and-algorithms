@@ -93,8 +93,13 @@ const addValues = (arr, value) => {
 
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  const localArr = arr;
+  for (let i = 0; i < times; i++) {
+    (callback(localArr, num));
+  }
+  return localArr;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 
@@ -115,8 +120,17 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  const localArr =[]
+  availableItems.forEach((item)=>{
+    if (item.available){
+      localArr.push(item.name)
+      
+    }
+  })
+  return localArr
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 STRETCH - CHALLENGE 7
