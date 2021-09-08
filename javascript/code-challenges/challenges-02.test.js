@@ -36,8 +36,12 @@ Write a function named addQuestion that, given an array of strings, uses map to 
 ------------------------------------------------------------------------------------------------ */
 
 const addQuestion = (arr) => {
-  // Solution code here...
+  let qus =arr.map(i=>{
+    return (i+'?');
+  });
+  return qus;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -50,7 +54,13 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 ------------------------------------------------------------------------------------------------ */
 
 const forLoopTwoToThe = (arr) => {
-  // Solution code here...
+  let numbers =[];
+  for (let i = 0; i < arr.length; i++) {
+    
+    numbers.push(Math.pow(2,arr[i]));
+   
+  }
+  return numbers;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -60,7 +70,12 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
-  // Solution code here...
+  const arr1=[];
+  arr.forEach(item =>{
+   arr1.push(Math.pow(2,item));
+   return arr1;
+  })
+   return arr1;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -70,8 +85,12 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
-  // Solution code here...
-};
+  let maping= arr.map(item =>{
+    return(Math.pow(2,item));
+    
+   })
+    return maping;
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
