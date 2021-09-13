@@ -68,10 +68,11 @@ Write a function named containsW that takes in a string. This function should us
 ------------------------------------------------------------------------------------------------ */
 
 const containsW = (str) => {
+regex-1
   let word=/w/g;
 
   return word.test(str);
-};
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -86,6 +87,7 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
+ regex-1
   let word=/[0-9]/g;
   return word.test(input);
 };
@@ -98,10 +100,10 @@ Write a function named containsWorld that takes in a string or number of any len
 ------------------------------------------------------------------------------------------------ */
 
 const containsWorld = (input) => {
+ regex-1
   let word=/world/g;
   return word.test(input);
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -111,12 +113,14 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
+ regex-1
   let word=/[A-Z](\w)*/g;
   if(str.match(word)){
     return str.match(word);
   }else return [];
 
 };
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
