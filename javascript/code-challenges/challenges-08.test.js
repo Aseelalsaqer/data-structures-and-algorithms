@@ -56,6 +56,8 @@ let characters = [
 
 const sortByChildren = (charArray) => {
   // Solution code here...
+  charArray.sort((a,b)=> a.children.length === b.children.length ? a.house > b.house?1:a.house < b.house ?-1:0  : a.children.length - b.children.length);
+  return charArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -123,6 +125,8 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
+  var regex= /^[A-J](\w)*/g;
+  return arr.filter(a=>a.match(regex));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -139,6 +143,7 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   // Solution code here...
+  return input.match && input.match(/^[Oo]ct(ober){0,1}$/g) !== null;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -153,6 +158,7 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 
 const noPunctuation = str => {
   // Solution code here...
+  return [...str.matchAll(/\w+\s{1}/g)].map(a => a[0]);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -169,6 +175,7 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 
 let hangman = (str) => {
   // Solution code here...
+  return str.replace(/[aAeEiIoOuU]/g, '_');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -185,6 +192,7 @@ const seashells = 'She sells seashells by the seashore. The shells she sells are
 
 const findShells = (str) => {
   // Solution code here...
+  return [...str.matchAll(/\w*ells/g)].map(a => a[0]);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -272,7 +280,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should match any of the acceptable inputs', () => {
     expect(matchMonth('Oct')).toBeTruthy();
     expect(matchMonth('oct')).toBeTruthy();
@@ -290,7 +298,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia vel massa sed egestas. Nunc faucibus iaculis elit, a scelerisque enim condimentum sed. Aenean ac scelerisque sem, et pharetra diam.';
 
   test('It should only return words that are immediately followed by a space', () => {
@@ -304,7 +312,7 @@ xdescribe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   let startString = 'This is a regex challenge. We are trying to create a hangman phrase where all of the vowels are missing!';
 
   test('It should remove the vowels from the hangman string and replace them with underscores', () => {
@@ -317,7 +325,7 @@ xdescribe('Testing challenge 9', () => {
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should return an array of instances of "sells", shells", and "seashells"', () => {
     expect(findShells(seashells)).toStrictEqual(['sells', 'seashells', 'shells', 'sells', 'seashells', 'sells', 'shells', 'sells', 'shells']);
     expect(findShells(seashells).length).toStrictEqual(9);
