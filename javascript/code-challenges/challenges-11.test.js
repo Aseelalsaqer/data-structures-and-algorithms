@@ -19,7 +19,17 @@ Becomes:
 ------------------------------------------------------------------------------------------------ */
 
 function transformToLis(obj){
-  // Solution code here...
+  let keys=[];
+  let values=[];
+  let NewArray=[];
+  keys=Object.keys(obj);
+  values=Object.values(obj);
+  for (let i = 0; i < keys.length; i++) {
+    keys[i]='<li>'+keys[i]+': ';
+    values[i]=values[i]+'</li>';
+    NewArray[i]=keys[i]+values[i];
+  }
+  return NewArray;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,15 +43,26 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  let counter=0;
-  input.map(item=>{
-    item.map(item2=>{
-      if(item2 === target){
-        counter++;
+  let sum = 0;
+
+  function arr(countNumber, arrayInput) {
+    arrayInput.map((value) => {
+      if (Array.isArray(value)) {
+        arr(countNumber, value);
+      } else {
+
+        if (value === target) {
+          sum++;
+        }
       }
     });
-  });
-  return counter;
+  }
+
+  if (Array.isArray(input)) {
+    arr(target, input);
+  }
+  return sum;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -63,6 +84,7 @@ const totalSum = (input) => {
   });
   return sum;
 };
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -76,7 +98,29 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+  let lastestArray = [];
+
+  function checkAndDo(thing) {
+    let newArr = thing.filter((value) => {
+      if (Array.isArray(value)) {
+        checkAndDo(value);
+      } else {
+        if ((typeof value === 'number') && Number.isInteger(value / 5)) {
+          return value;
+        }
+      }
+    });
+
+    lastestArray.push(newArr.map((val,idx) => {
+      return Math.pow(2, val);
+    }));
+  }
+
+  if (Array.isArray(input)) {
+    checkAndDo(input);
+  }
+  lastestArray.pop();
+  return lastestArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -142,7 +186,20 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
+  let newInfo = [];
+
+  data.map(item => {
+
+    if ((item.gender === 'male') || (item.gender === 'female')) {
+
+      newInfo.push(item.name);
+
+    }
+
+    // if
+
+  });
+  return newInfo.join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -152,7 +209,23 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  // Solution code here...
+  let name;
+  let test;
+  let NewArray=[];
+
+  NewArray=data.map(item=>{
+    return item.height;
+  });
+  test=NewArray.reduce((a,b)=>{
+    return Math.min(a,b);
+  }
+  );
+  data.map(item=>{
+    if(Number(item.height)===test){
+      name=item.name;
+    }
+  });
+  return name;
 };
 
 /* ------------------------------------------------------------------------------------------------
