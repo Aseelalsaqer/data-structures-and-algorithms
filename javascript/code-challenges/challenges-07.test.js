@@ -25,8 +25,17 @@ let starWarsPeople = [
 ];
 
 const sortStarWarsCharacters = (starWarsArr) => {
-  // Solution code here...
-}
+ array-methods
+  for(let i=1;i<starWarsArr.length;i++){
+    if(starWarsArr[i-1].height<starWarsArr[i].height){
+      starWarsArr.splice([i-1],1);
+      starWarsArr.splice(i,0,starWarsArr[i-1]);
+    }
+  }
+  return starWarsArr;
+};
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -35,8 +44,11 @@ Write a function named removeThree that takes an index and an array. The functio
 ------------------------------------------------------------------------------------------------ */
 
 const removeThree = (idx, arr) => {
-  // Solution code here...
+array-methods
+  arr.splice(idx,3);
+  return arr;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -45,7 +57,11 @@ Write a function named joinArray that takes an array and joins all of the elemen
 ------------------------------------------------------------------------------------------------ */
 
 const joinArray = (arr) => {
-  // Solution code here...
+ array-methods
+  let string=arr.join(' ');
+  return string;
+
+ 
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -63,11 +79,15 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  // Solution code here...
+ array-methods
+  result=str.split();
+  for(let i=0;i<str.length;i++){
+    result.push(str.slice(i+1));
+  }
   return result;
 };
-
-/* ------------------------------------------------------------------------------------------------
+ 
+---------------------------------------------------------------------
 CHALLENGE 5
 
 Write a function name wordsToCharList that, given a string as input, returns a new array where every element is a character of the input string.
@@ -76,7 +96,11 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  // Solution code here...
+ array-methods
+  let NewArray=[];
+  NewArray=arr;
+  return NewArray.split('');
+
 };
 
 
@@ -123,9 +147,14 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+ array-methods
+  recipe.ingredients.forEach((item) => {
+    let Array1=item.slice(item.indexOf(' ')+1);
+    result.push(Array1.slice(Array1.indexOf(' ')+1));
+  });
   return result;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
