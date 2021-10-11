@@ -79,4 +79,4 @@ From the root of the `data-structures-and-algorithms/python` folder, execute the
 **CC2**
 <img src = "cc2.PNG">
 
-Me and Ehab Ahmad worked togther on this .
+# Me and Ehab Ahmad worked togther on this .
