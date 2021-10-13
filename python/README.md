@@ -80,3 +80,6 @@ From the root of the `data-structures-and-algorithms/python` folder, execute the
 <img src = "cc2.PNG">
 
 # Me and Ehab Ahmad worked togther on this .
+
+**CC3**
+<img src = "cc3.PNG">
