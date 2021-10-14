@@ -77,7 +77,7 @@ From the root of the `data-structures-and-algorithms/python` folder, execute the
 -   **Run in watch mode** - `ptw` or `pytest-watch`
 
 **CC1**
-<img src = "/home/aseel/acac/data-structures-and-algorithms/python/code_challenges/CC1/CC1.PNG">
+<img src = "CC1.PNG">
 
 **CC2**
 <img src = "cc2.PNG">
