@@ -18,10 +18,10 @@ def reverse_list(ll):
 #     print(ll[i]),
 
 def array_everse(ll):
-    arr = []
+    l = []
     for i in ll:
-        arr.insert(0, i)
-    return arr
+        l.insert(0, i)
+    return l
 
 
 print(array_everse([1, 2, 3, 4]))
