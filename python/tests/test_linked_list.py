@@ -116,15 +116,29 @@ def test_list_append():
     actual = ll.to_string()
     # Assert
     assert actual == expected
-def test_list_append():
+# def test_list_before():
+#        # Arrange
+#     expected = "{ d } -> { a } -> { b } -> { c } -> NULL"
+#     ll = LinkedList()
+#     # Act
+#     ll.insert("c")
+#     ll.insert("b")
+#     ll.insert("a")
+#     ll.insert_before("d")
+#      # Assert
+#     actual = ll.to_string()
+#     # Assert
+#     assert actual == expected
+
+def test_list_after():
        # Arrange
-    expected = "{ d } -> { a } -> { b } -> { c } -> NULL"
+    expected = "{ a } -> { d } -> { b } -> { c } -> NULL"
     ll = LinkedList()
     # Act
     ll.insert("c")
     ll.insert("b")
     ll.insert("a")
-    ll.insert_before("d")
+    ll.insert_after("a", "d")
      # Assert
     actual = ll.to_string()
     # Assert
