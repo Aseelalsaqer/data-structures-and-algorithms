@@ -2,11 +2,7 @@
 import pytest
 from linked_list.linked_list import Node,  LinkedList
 
-# from test_linked_list import __version__
 
-
-# def test_version():
-#     assert __version__ == '0.1.0'
 
 
 def test_node_has_int_data():
@@ -107,7 +103,7 @@ def test_linked_to_string():
     # Assert
     assert actual == expected
 
-def test_list_insert():
+def test_list_append():
    # Arrange
     expected = "{ a } -> { b } -> { c } -> { d } -> NULL"
     ll = LinkedList()
@@ -120,3 +116,17 @@ def test_list_insert():
     actual = ll.to_string()
     # Assert
     assert actual == expected
+def test_list_append():
+       # Arrange
+    expected = "{ d } -> { a } -> { b } -> { c } -> NULL"
+    ll = LinkedList()
+    # Act
+    ll.insert("c")
+    ll.insert("b")
+    ll.insert("a")
+    ll.insert_before("d")
+     # Assert
+    actual = ll.to_string()
+    # Assert
+    assert actual == expected
+
