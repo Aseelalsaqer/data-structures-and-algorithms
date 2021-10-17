@@ -14,6 +14,7 @@ class Node:
         self.nxt = nxt
 
 
+
 class LinkedList:
     """
     A class for creating instances of a Linked List.
@@ -26,6 +27,8 @@ class LinkedList:
 
     def __init__(self):
         self.head = None
+
+
 
     def insert(self, value):
         """"
@@ -63,13 +66,42 @@ class LinkedList:
             element = element.nxt
         string += "NULL"
         return string
+    """Functio to insert a new node at the beginning """
+    def insert_before(self, new_value):
 
+        new_node = Node(new_value)
+        new_node.nxt = self.head
+        self.head = new_node
+
+    def insert_after(self, value, new_value):
+
+        if value is None:
+            print ("The given previous node must inLinkedList.")
+            return
+        new_node = Node(new_value)
+
+        new_node.next = value.nxt
+        value.nxt = new_node
+
+    def append(self, value):
+
+        new_node = Node(value)
+        if self.head is None:
+            self.head = new_node
+            return
+
+        last = self.head
+        while (last.nxt):
+            last = last.nxt
+        last.nxt =  new_node
 
 aseel = LinkedList()
 aseel.insert(2)
 aseel.insert(1)
 aseel.insert(6)
+aseel.append(7)
+
 print(aseel.to_string())
-print("for 2", aseel.includes(2))
-print("for 6", aseel.includes(6))
-print("for 3", aseel.includes(3))
+# print("for 2", aseel.includes(2))
+# print("for 6", aseel.includes(6))
+# print("for 3", aseel.includes(3))
