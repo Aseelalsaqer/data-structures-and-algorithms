@@ -88,7 +88,7 @@ class LinkedList:
         current =self.head
         if not current:
             return "NULL"
-        while current.nxt:
+        while current:
             if current.nxt.data == valueToAddBefore:
                 new_node =Node(newValue)
                 new_node.nxt = current.nxt
@@ -123,13 +123,13 @@ class LinkedList:
             last = last.nxt
         last.nxt =  new_node
 
-# aseel = LinkedList()
-# aseel.insert(2)
-# aseel.insert(1)
-# aseel.insert(6)
-# aseel.insert_before(3 , 10)
+aseel = LinkedList()
+aseel.insert(2)
+aseel.insert(1)
+aseel.insert(6)
+aseel.insert_before(6, 10)
 # aseel.append(7)
-# print(aseel.to_string())
+print(aseel.to_string())
 # print("for 2", aseel.includes(2))
 # print("for 6", aseel.includes(6))
 # print("for 3", aseel.includes(3))
