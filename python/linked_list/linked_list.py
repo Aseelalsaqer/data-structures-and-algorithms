@@ -79,39 +79,37 @@ class LinkedList:
 
     #            value.insert(i, new_node)
 
-    def insert_before(self, x, data):
-        if self.start_node is None:
-            print("List has no element")
-            return
+    def insert_before(self ,newValue,valueToAddBefore):
+        """
+        adding new node with  new value  before the node that has the value specified
 
-        if x == self.start_node.item:
-            new_node = Node(data)
-            new_node.ref = self.start_node
-            self.start_node = new_node
-            return
+        """
 
-        n = self.start_node
-        print(n.ref)
-        while n.ref is not None:
-            if n.ref.item == x:
-                break
-            n = n.ref
-        if n.ref is None:
-            print("item not in the list")
-        else:
-            new_node = Node(data)
-            new_node.ref = n.ref
-            n.ref = new_node
+        current =self.head
+        if not current:
+            return "NULL"
+        while current.nxt:
+            if current.nxt.data == valueToAddBefore:
+                new_node =Node(newValue)
+                new_node.nxt = current.nxt
+                current.nxt=new_node
+        current=current.nxt
 
-    # def insert_after(self, value, new_value):
+    def insert_after(self ,newValue,valueToAddafter):
+        """
+        adding new node with  new value  after the node that has the value specified
 
-    #     if value is None:
-    #         print ("The given previous node must inLinkedList.")
-    #         return
-    #     new_node = Node(new_value)
+        """
 
-    #     new_node.nxt = value.nxt
-    #     value.nxt = new_node
+        current =self.head
+        if not current.nxt:
+            return "This the linked list tile"
+        while current.nxt:
+            if current.data == valueToAddafter:
+                new_node =Node(newValue)
+                new_node.nxt = current.nxt
+                current.nxt=new_node
+        current=current.nxt
 
     def append(self, value):
 
@@ -125,13 +123,13 @@ class LinkedList:
             last = last.nxt
         last.nxt =  new_node
 
-aseel = LinkedList()
-aseel.insert(2)
-aseel.insert(1)
-aseel.insert(6)
-aseel.insert_before
+# aseel = LinkedList()
+# aseel.insert(2)
+# aseel.insert(1)
+# aseel.insert(6)
+# aseel.insert_before(3 , 10)
 # aseel.append(7)
-print(aseel.to_string())
+# print(aseel.to_string())
 # print("for 2", aseel.includes(2))
 # print("for 6", aseel.includes(6))
 # print("for 3", aseel.includes(3))
