@@ -122,7 +122,7 @@ class LinkedList:
         count = 0
         while (pointer):
             if (count == k):
-                return pointer.value
+                return pointer.data
             count += 1
             pointer = pointer.nxt
         if k == count:

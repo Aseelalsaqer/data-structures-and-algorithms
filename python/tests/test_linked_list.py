@@ -147,12 +147,12 @@ def test_list_after():
 
 def test_get_k_th():
     # Arrange
-    expected = 3
+    expected = "c"
     # Actual
     ll = LinkedList()
-    ll.append(1)
-    ll.append(2)
-    ll.append(3)
+    ll.append("a")
+    ll.append("b")
+    ll.append("c")
     actual = ll.kthFromEnd(2)
     print(actual)
     # Assert
