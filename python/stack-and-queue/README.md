@@ -1,6 +1,7 @@
 # Stacks and Queues
 
-Implementation of Stacks and Queues
+-   Implementation of Stacks and Queues
+-   Implementation of Queues using Stack
 
 # Test Requirements:
 
@@ -20,7 +21,13 @@ Implementation of Stacks and Queues
 -   Calling dequeue or peek on empty queue raises exception
 
 White Boared :
-CC10
+
+## CC10
+
 <img src = "CC10-Queue.PNG">
 
 <img src = "CC10-Stack.PNG">
+
+## CC11
+
+<img src = "CC11.PNG">
