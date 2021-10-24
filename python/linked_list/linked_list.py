@@ -67,49 +67,44 @@ class LinkedList:
         string += "NULL"
         return string
 
-    """Functio to insert a new node at the beginning """
-    # def insert_before(self, value, new_value):
-
-    #     for i in range((value)):
-    #       new_node = Node(new_value)
-    #       if value[i] == new_node:
-
-    #            new_node.nxt = self.head
-    #            self.head = new_node
-
-    #            value.insert(i, new_node)
-
-    def insert_before(self ,newValue,valueToAddBefore):
+    def insert_before(self, pre , new):
         """
-        adding new node with  new value  before the node that has the value specified
-
+        function will add a new node before the given value
+        arguments
+        new
+        pre
+        returns none
         """
 
-        current =self.head
+        current = self.head
         if not current:
             return "NULL"
-        while current:
-            if current.nxt.data == valueToAddBefore:
-                new_node =Node(newValue)
-                new_node.nxt = current.nxt
-                current.nxt=new_node
-        current=current.nxt
-
-    def insert_after(self ,newValue,valueToAddafter):
-        """
-        adding new node with  new value  after the node that has the value specified
-
-        """
-
-        current =self.head
-        if not current.nxt:
-            return "This the linked list tile"
         while current.nxt:
-            if current.data == valueToAddafter:
-                new_node =Node(newValue)
+            if current.data == pre:
+                new_node = Node(new)
                 new_node.nxt = current.nxt
-                current.nxt=new_node
-        current=current.nxt
+                current.nxt = new_node
+            current = current.nxt
+
+    def insert_after(self, new, after):
+        """
+        function will add a new value as a node after the given value
+        arguments
+        new
+        after
+        returns null if the linked list is empty
+        """
+
+        current = self.head
+        if not current:
+            return "NULL"
+        while current.nxt:
+            if current.data == after:
+                new_node = Node(new)
+                current.nxt = new_node.nxt
+                current.nxt = new_node
+        current = current.nxt
+
 
     def append(self, value):
 
@@ -127,8 +122,11 @@ aseel = LinkedList()
 aseel.insert(2)
 aseel.insert(1)
 aseel.insert(6)
-aseel.insert_before(6, 10)
+print(aseel.to_string())
+# aseel.insert_before(3, 3)
 # aseel.append(7)
+aseel.insert_after(1, 7)
+
 print(aseel.to_string())
 # print("for 2", aseel.includes(2))
 # print("for 6", aseel.includes(6))
