@@ -5,8 +5,8 @@ class Node:
     ----------
     Methods
     -------
-    __init__(data, next_):
-        the constructor method for the class, it takes two parameters, the data parameter is the a reference to the data the node will hold, and the next_
+    __init__(data, nxt_):
+        the constructor method for the class, it takes two parameters, the data parameter is the a reference to the data the node will hold, and the nxt_
     """
 
     def __init__(self, data, nxt=None):
@@ -67,43 +67,38 @@ class LinkedList:
         string += "NULL"
         return string
 
-    def insert_before(self, pre , new):
-        """
-        function will add a new node before the given value
-        arguments
-        new
-        pre
-        returns none
-        """
 
-        current = self.head
-        if not current:
-            return "NULL"
-        while current.nxt:
-            if current.data == pre:
-                new_node = Node(new)
-                new_node.nxt = current.nxt
-                current.nxt = new_node
-            current = current.nxt
-
-    def insert_after(self, new, after):
+    def insert_after(self, value, new_value):
         """
-        function will add a new value as a node after the given value
-        arguments
-        new
-        after
-        returns null if the linked list is empty
-        """
+         function will add a new value as a node after the given value
 
-        current = self.head
-        if not current:
-            return "NULL"
-        while current.nxt:
-            if current.data == after:
-                new_node = Node(new)
-                current.nxt = new_node.nxt
-                current.nxt = new_node
-        current = current.nxt
+         """
+        node = Node(new_value)
+        current_value_node = self.head
+        if current_value_node.data == value:
+            node.nxt = self.head
+            self.head = node
+        else:
+            while current_value_node.nxt:
+                if current_value_node.nxt.data == value:
+                    node.nxt = current_value_node.nxt
+                    current_value_node.nxt = node
+                    break
+                current_value_node = current_value_node.nxt
+
+    def insert_before(self, value, new_value):
+        """
+         function will add a new node before the given value
+
+         """
+        new_node = Node(new_value)
+        current_value = self.head
+        while current_value:
+            if current_value.data == value:
+                new_node.nxt = current_value.nxt
+                current_value.nxt = new_node
+                break
+            current_value = current_value.nxt
 
 
     def append(self, value):
@@ -120,10 +115,12 @@ class LinkedList:
 
 aseel = LinkedList()
 aseel.insert(2)
+print(aseel.to_string())
 aseel.insert(1)
+print(aseel.to_string())
 aseel.insert(6)
 print(aseel.to_string())
-# aseel.insert_before(3, 3)
+# aseel.insert_before(1, 3)
 # aseel.append(7)
 aseel.insert_after(1, 7)
 
