@@ -30,7 +30,8 @@ class PseudoQueue:
     def dequeue(self):
         if self.stack_2.is_empty():
             while not self.stack_1.is_empty():
-                self.stack_2.push(self.stack_1.pop())
+                removing = self.stack_1.pop()
+                self.stack_2.push(removing)
 
         return self.stack_2.pop()
 
