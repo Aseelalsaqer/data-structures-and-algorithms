@@ -1,3 +1,5 @@
+# from linked_list import __version__
+
 from linked_list.linked_list import Node,  LinkedList
 import pytest
 
@@ -47,7 +49,7 @@ def test_node_without_value():
         node = Node()
 
 
-def test_new_linked_list_is_empty():
+def test_new_ll_is_empty():
     # Arrange
     expected = None
     ll = LinkedList()
@@ -57,7 +59,7 @@ def test_new_linked_list_is_empty():
     assert actual == expected
 
 
-def test_linked_list_insert():
+def test_ll_insert():
     # Arrange
     expected = 1
     ll = LinkedList()
@@ -71,7 +73,7 @@ def test_linked_list_insert():
     assert actual == expected
 
 
-def test_linked_list_insert_twice():
+def test_ll_insert_twice():
     # Arrange
     expected = 0
     ll = LinkedList()
@@ -116,68 +118,68 @@ def test_linked_to_string():
 
 
 def test_append():
-    linked_list = LinkedList()
-    linked_list.insert(7)
-    linked_list.insert(4)
-    linked_list.append(74)
-    linked_list.to_string()
-    # actual = str(ll)
-    # expected = '{10} -> {6} -> {3} -> {74} -> NULL'
-    # assert actual == expected
-    assert linked_list.to_string() == "{4} -> {7} -> {74} -> Null"
+    ll = LinkedList()
+    ll.insert(7)
+    ll.insert(4)
+    ll.append(74)
+
+    actual = ll.to_string()
+    expected = '{ 4 } -> { 7 } -> { 74 } -> NULL'
+    assert actual == expected
+
 
 def test_multiple_append():
-    linked_list = LinkedList()
-    linked_list.insert(7)
-    linked_list.insert(4)
-    linked_list.append(74)
-    linked_list.append(66)
-    linked_list.to_string()
-    assert linked_list.to_string() == "{4} -> {7} -> {74} -> {66} -> Null"
-
-
-def test_insert_before_middle():
-    linked_list = LinkedList()
-    linked_list.insert(7)
-    linked_list.insert(4)
-    linked_list.insert(1)
-    linked_list.append(74)
-    linked_list.append(66)
-    linked_list.insert_before(7,'before middle')
-    linked_list.to_string()
-    assert linked_list.to_string() == "{1} -> {4} -> {'before middle'} -> {7} -> {74} -> {66} -> Null"
-
-def test_insert_before_first():
-    linked_list = LinkedList()
-    linked_list.insert(7)
-    linked_list.insert(4)
-    linked_list.insert(1)
-    linked_list.append(74)
-    linked_list.append(66)
-    linked_list.insert_before(1,100)
-    linked_list.to_string()
-    assert linked_list.to_string() == "{100} -> {1} -> {4} -> {7} -> {74} -> {66} -> Null"
+    ll = LinkedList()
+    ll.insert(7)
+    ll.insert(4)
+    ll.append(74)
+    ll.append(66)
+    ll.to_string()
+    assert ll.to_string() == "{ 4 } -> { 7 } -> { 74 } -> { 66 } -> NULL"
 
 
 def test_insert_after_middle():
-    linked_list = LinkedList()
-    linked_list.insert(7)
-    linked_list.insert(4)
-    linked_list.insert(1)
-    linked_list.append(74)
-    linked_list.append(66)
-    linked_list.insert_after(7,'after middle')
-    linked_list.to_string()
-    assert linked_list.to_string() == "{1} -> {4} -> {7} -> {'after middle'} -> {74} -> {66} -> Null"
+    ll = LinkedList()
+    ll.insert(7)
+    ll.insert(4)
+    ll.insert(1)
+    ll.append(74)
+    ll.append(66)
+    ll.insert_after(7,5)
+    ll.to_string()
+    assert ll.to_string() == "{ 1 } -> { 4 } -> { 5 } -> { 7 } -> { 74 } -> { 66 } -> NULL"
+
+def test_insert_after_first():
+    ll = LinkedList()
+    ll.insert(7)
+    ll.insert(4)
+    ll.insert(1)
+    ll.append(74)
+    ll.append(66)
+    ll.insert_after(1,100)
+    ll.to_string()
+    assert ll.to_string() == "{ 100 } -> { 1 } -> { 4 } -> { 7 } -> { 74 } -> { 66 } -> NULL"
 
 
-def test_insert_after_end():
-    linked_list = LinkedList()
-    linked_list.insert(7)
-    linked_list.insert(4)
-    linked_list.insert(1)
-    linked_list.append(74)
-    linked_list.append(66)
-    linked_list.insert_after(66,'after end')
-    linked_list.to_string()
-    assert linked_list.to_string() == "{1} -> {4} -> {7} -> {74} -> {66} -> {'after end'} -> Null"
+def test_insert_before_middle():
+    ll = LinkedList()
+    ll.insert(7)
+    ll.insert(4)
+    ll.insert(1)
+    ll.append(74)
+    ll.append(66)
+    ll.insert_before(7,9)
+    ll.to_string()
+    assert ll.to_string() == "{ 1 } -> { 4 } -> { 7 } -> { 9 } -> { 74 } -> { 66 } -> NULL"
+
+
+def test_insert_before_end():
+    ll = LinkedList()
+    ll.insert(7)
+    ll.insert(4)
+    ll.insert(1)
+    ll.append(74)
+    ll.append(66)
+    ll.insert_before(66,8)
+    ll.to_string()
+    assert ll.to_string() == "{ 1 } -> { 4 } -> { 7 } -> { 74 } -> { 66 } -> { 8 } -> NULL"
