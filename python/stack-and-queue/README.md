@@ -35,3 +35,7 @@ White Boared :
 ## CC12
 
 <img src = "CC12.PNG">
+
+## CC13
+
+<img src = "CC13.PNG">
