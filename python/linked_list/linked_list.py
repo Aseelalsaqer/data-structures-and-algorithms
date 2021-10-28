@@ -5,8 +5,8 @@ class Node:
     ----------
     Methods
     -------
-    __init__(data, next_):
-        the constructor method for the class, it takes two parameters, the data parameter is the a reference to the data the node will hold, and the next_
+    __init__(data, nxt_):
+        the constructor method for the class, it takes two parameters, the data parameter is the a reference to the data the node will hold, and the nxt_
     """
 
     def __init__(self, data, nxt=None):
@@ -68,38 +68,38 @@ class LinkedList:
         return string
 
 
-
-    def insert_before(self ,newValue,valueToAddBefore):
+    def insert_after(self, value, new_value):
         """
-        adding new node with  new value  before the node that has the value specified
+         function will add a new value as a node after the given value
 
+         """
+        node = Node(new_value)
+        current_value_node = self.head
+        if current_value_node.data == value:
+            node.nxt = self.head
+            self.head = node
+        else:
+            while current_value_node.nxt:
+                if current_value_node.nxt.data == value:
+                    node.nxt = current_value_node.nxt
+                    current_value_node.nxt = node
+                    break
+                current_value_node = current_value_node.nxt
+
+    def insert_before(self, value, new_value):
         """
+         function will add a new node before the given value
 
-        current =self.head
-        if not current:
-            return "NULL"
-        while current.nxt:
-            if current.nxt.data == valueToAddBefore:
-                new_node =Node(newValue)
-                new_node.nxt = current.nxt
-                current.nxt=new_node
-        current=current.nxt
+         """
+        new_node = Node(new_value)
+        current_value = self.head
+        while current_value:
+            if current_value.data == value:
+                new_node.nxt = current_value.nxt
+                current_value.nxt = new_node
+                break
+            current_value = current_value.nxt
 
-    def insert_after(self ,newValue,valueToAddafter):
-        """
-        adding new node with  new value  after the node that has the value specified
-
-        """
-
-        current =self.head
-        if not current.nxt:
-            return "This the linked list tile"
-        while current.nxt:
-            if current.data == valueToAddafter:
-                new_node =Node(newValue)
-                new_node.nxt = current.nxt
-                current.nxt=new_node
-        current=current.nxt
 
     def append(self, value):
 
@@ -113,6 +113,7 @@ class LinkedList:
             last = last.nxt
         last.nxt =  new_node
 
+
     def kthFromEnd(self, k):
         """
         this function return the kth value of list
@@ -120,35 +121,37 @@ class LinkedList:
         """
         pointer = self.head
         count = 0
-        while (pointer):
+        while (pointer.nxt):
             if (count == k):
                 return pointer.data
             count += 1
             pointer = pointer.nxt
-        if k == count:
-            return "The Length = k you passed are same"
-        elif k > count:
-            return "You are not allowed to enter a number greater than length of the list"
+
+        if k > count:
+            return "You are not allowed to enter a number is greater than length of list"
         elif k < 0:
             return "You are not allowed to enter negative number"
-        else:
-            return 0
 
-# aseel = LinkedList()
-# aseel.insert(2)
-# aseel.insert(1)
-# aseel.insert(6)
-# print(aseel.to_string())
+
 
 aseel = LinkedList()
 aseel.insert(2)
+# print(aseel.to_string())
 aseel.insert(1)
+# print(aseel.to_string())
 aseel.insert(6)
-# aseel.insert_before(3 , 10)
-# aseel.append(7)
-aseel.kthFromEnd(2)
-print(aseel.to_string())
+aseel.insert(8)
+aseel.insert(3)
 
+
+print(aseel.kthFromEnd(4))
+print(aseel.to_string())
+# print(aseel.to_string())
+# aseel.insert_before(1, 3)
+# aseel.append(7)
+# aseel.insert_after(1, 7)
+
+# print(aseel.to_string())
 # print("for 2", aseel.includes(2))
 # print("for 6", aseel.includes(6))
 # print("for 3", aseel.includes(3))
