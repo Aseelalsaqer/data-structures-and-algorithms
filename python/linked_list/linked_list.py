@@ -141,6 +141,36 @@ class LinkedList:
 
             pointer = pointer.nxt
 
+    def zip_lists(list1, list2):
+        """function takes two lists as argument and return one list which is result of alternate between the two lists and return a reference to the head of the zipped list."""
+
+        first = list1.head
+        second = list2.head
+
+        if not first and not second:
+
+            return 'There is no lists to zip'
+
+
+        fixed_node = ""
+
+        while first and second:
+            if second:
+                fixed_node = first.nxt
+                first.nxt = second
+                first = fixed_node
+
+            if first:
+                fixed_node = second.nxt
+                second.nxt = first
+                second = fixed_node
+
+        return str(list1)
+
+
+
+
+
 # aseel = LinkedList()
 # aseel.insert(2)
 # aseel.insert(1)
@@ -155,7 +185,7 @@ aseel.insert(8)
 aseel.insert(3)
 # aseel.insert_before(3 , 10)
 # aseel.append(7)
-print(aseel.kthFromEnd(1))
+# print(aseel.kthFromEnd(1))
 
 print(aseel.to_string())
 
