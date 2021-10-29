@@ -2,11 +2,7 @@
 import pytest
 from linked_list.linked_list import Node,  LinkedList
 
-from test_linked_list import __version__
 
-
-def test_version():
-    assert __version__ == '0.1.0'
 
 
 def test_node_has_int_data():
@@ -104,5 +100,129 @@ def test_linked_to_string():
     ll.insert("a")
     # Assert
     actual = ll.to_string()
+    # Assert
+    assert actual == expected
+
+def test_list_append():
+   # Arrange
+    expected = "{ a } -> { b } -> { c } -> { d } -> NULL"
+    ll = LinkedList()
+    # Act
+    ll.insert("c")
+    ll.insert("b")
+    ll.insert("a")
+    ll.append("d")
+     # Assert
+    actual = ll.to_string()
+    # Assert
+    assert actual == expected
+
+def test_list_before():
+       # Arrange
+    expected = "{ d } -> { a } -> { b } -> { c } -> NULL"
+    ll = LinkedList()
+    # Act
+    ll.insert("c")
+    ll.insert("b")
+    ll.insert("a")
+    ll.insert_before("a", "d")
+     # Assert
+    actual = ll.to_string()
+    # Assert
+    assert actual == expected
+
+def test_list_after():
+       # Arrange
+    expected = "{ a } -> { d } -> { b } -> { c } -> NULL"
+    ll = LinkedList()
+    # Act
+    ll.insert("c")
+    ll.insert("b")
+    ll.insert("a")
+    ll.insert_after("a", "d")
+     # Assert
+    actual = ll.to_string()
+    # Assert
+    assert actual == expected
+
+def test_get_k_th():
+    # Arrange
+    expected = "c"
+    # Actual
+    ll = LinkedList()
+    ll.append("a")
+    ll.append("b")
+    ll.append("c")
+    actual = ll.kthFromEnd(2)
+    print(actual)
+    # Assert
+    assert actual == expected
+
+def test_get_k_th_if_number_passed_greater_than_length_of_list():
+    # Arrange
+    expected = "You are not allowed to enter a number is greater than length of list"
+    # Actual
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+    actual = ll.kthFromEnd(5)
+    print(actual)
+    # Assert
+    assert actual == expected
+
+
+def test_get_k_th_if_number_passed_is_negative():
+    # Arrange
+    expected = "You are not allowed to enter negative number"
+    # Actual
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+    actual = ll.kthFromEnd(-1)
+    print(actual)
+    # Assert
+    assert actual == expected
+
+def test_get_k_th_if_list_length_is_unity():
+    # Arrange
+    expected = 1
+    # Actual
+    ll = LinkedList()
+    ll.append(1)
+    actual = ll.kthFromEnd(0)
+    print(actual)
+    # Assert
+    assert actual == expected
+def test_get_k_th_if_list_in_the_middle():
+    # Arrange
+
+    expected = 3
+    # Actual
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(4)
+    ll.append(5)
+    ll.insert_before(4, 3)
+    actual = ll.kthFromEnd(2)
+
+    # Assert
+    assert actual == expected
+
+def test_get_k_if_the_k_and_length_are_same():
+    # Arrange
+    # expected '{ 1 } -> { 2 } -> { 3 } -> { 4 } -> { 5 } -> None'
+    expected = "The Length of array and the k you passed are same"
+    # Actual
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(4)
+    ll.append(5)
+    ll.insert_before(4, 3)
+    actual = ll.kthFromEnd(5)
+
     # Assert
     assert actual == expected
