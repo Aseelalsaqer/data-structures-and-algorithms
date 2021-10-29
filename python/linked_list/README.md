@@ -25,4 +25,4 @@ A linked list is a sequence of data elements, which are connected together via l
 #### Returns a formatted string representing all the values in the Linked List.
 
 **CC7**
-<img src = "CC7.PNG">
+<img src = "CC7 board.PNG">
