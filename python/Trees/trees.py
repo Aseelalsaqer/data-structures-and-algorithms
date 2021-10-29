@@ -1,10 +1,12 @@
 class Node:
+
     def __init__(self, val):
         self.value = val
         self.left = None
         self.right = None
 
 class binarytree:
+
     def __init__(self):
         self.root = None
     def inorder(self):
@@ -47,6 +49,7 @@ class binarytree:
             return ordering(self.root)
 
 class binarysearchtree(binarytree):
+
     def add(self, value):
         if self.root == None:
             self.root = Node(value)
@@ -80,6 +83,7 @@ class binarysearchtree(binarytree):
                     if current.right == None:
                         return "dose not exist"
                     current = current.right
+
 aseel= binarysearchtree()
 if __name__ == '__main__':
 
