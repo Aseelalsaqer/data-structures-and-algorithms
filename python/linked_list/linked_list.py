@@ -113,26 +113,33 @@ class LinkedList:
             last = last.nxt
         last.nxt =  new_node
 
+
+
     def kthFromEnd(self, k):
         """
         this function return the kth value of list
 
         """
         pointer = self.head
-        count = 0
-        while (pointer):
-            if (count == k):
-                return pointer.data
+        count = 1
+        while pointer.nxt:
             count += 1
             pointer = pointer.nxt
-        if k == count:
-            return "The Length = k you passed are same"
-        elif k > count:
+        pointer = self.head
+
+        if k >= count:
             return "You are not allowed to enter a number greater than length of the list"
         elif k < 0:
             return "You are not allowed to enter negative number"
-        else:
-            return 0
+        value = count-k-1
+        for i in range(count):
+
+            if i == value:
+
+                return pointer.data
+
+
+            pointer = pointer.nxt
 
 # aseel = LinkedList()
 # aseel.insert(2)
@@ -144,9 +151,12 @@ aseel = LinkedList()
 aseel.insert(2)
 aseel.insert(1)
 aseel.insert(6)
+aseel.insert(8)
+aseel.insert(3)
 # aseel.insert_before(3 , 10)
 # aseel.append(7)
-aseel.kthFromEnd(2)
+print(aseel.kthFromEnd(1))
+
 print(aseel.to_string())
 
 # print("for 2", aseel.includes(2))

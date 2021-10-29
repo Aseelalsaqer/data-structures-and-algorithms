@@ -23,3 +23,6 @@ A linked list is a sequence of data elements, which are connected together via l
 **LinkedList.to_string()** :
 
 #### Returns a formatted string representing all the values in the Linked List.
+
+**CC7**
+<img src = "CC7.PNG">
