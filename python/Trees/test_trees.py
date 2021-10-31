@@ -101,3 +101,33 @@ def test_value_exist():
     actual = aseel.Contains(11)
     expected = "the value is exist"
     assert actual == expected
+#   to return the max value of binary tree
+
+def test_value_max_1():
+    tree = binarysearchtree()
+    tree.add(1)
+    tree.add(5)
+    tree.add(2)
+    tree.add(7)
+    tree.add(11)
+    tree.add(3)
+    actual = tree.max_value()
+    expected = 11
+    assert actual == expected
+
+#   to return the max value of binary tree
+def test_value_max_2():
+    tree = binarysearchtree()
+    tree.add(5)
+    tree.add(2)
+    tree.add(7)
+    tree.add(3)
+    actual = tree.max_value()
+    expected = 7
+    assert actual == expected
+#   to return the max value of binary tree when its empty
+def test_value_max_3():
+    tree = binarysearchtree()
+    actual = tree.max_value()
+    expected = "empty tree"
+    assert actual == expected
