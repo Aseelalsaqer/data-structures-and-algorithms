@@ -98,6 +98,7 @@ class binarysearchtree(binarytree):
                         return "dose not exist"
                     current = current.right
 
+
 aseel= binarysearchtree()
 if __name__ == '__main__':
 
@@ -106,9 +107,29 @@ if __name__ == '__main__':
    aseel.add(7)
    aseel.add(11)
    aseel.add(3)
-print(aseel.inorder())
-print(aseel.postorder())
-print(aseel.preorder())
-print(aseel.Contains(6))
-print(aseel.Contains(7))
-print(aseel.max_value())
+# print(aseel.inorder())
+# print(aseel.postorder())
+# print(aseel.preorder())
+# print(aseel.Contains(6))
+# print(aseel.Contains(7))
+# print(aseel.max_value())
+def breadth_first(tree):
+    list=[]
+    if tree.root==None:
+        return "empty tree"
+    else:
+        list.append(tree.root.value)
+        def ordering(tree):
+            if tree.left:
+                list.append(tree.left.value)
+            if tree.right:
+                list.append(tree.right.value)
+            if tree.left:
+                ordering(tree.left)
+            if tree.right:
+                ordering(tree.right)
+        ordering(tree.root)
+        return list
+print(breadth_first(aseel))
+
+
