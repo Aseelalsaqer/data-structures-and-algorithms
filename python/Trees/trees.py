@@ -102,11 +102,11 @@ class binarysearchtree(binarytree):
 aseel= binarysearchtree()
 if __name__ == '__main__':
 
-   aseel.add(1)
-   aseel.add(2)
-   aseel.add(7)
-   aseel.add(11)
-   aseel.add(3)
+   aseel.add(15)
+   aseel.add(20)
+   aseel.add(9)
+   aseel.add(17)
+#    aseel.add(3)
 # print(aseel.inorder())
 # print(aseel.postorder())
 # print(aseel.preorder())
@@ -130,6 +130,42 @@ def breadth_first(tree):
                 ordering(tree.right)
         ordering(tree.root)
         return list
-print(breadth_first(aseel))
+# print(breadth_first(aseel))
+
+
+def fizz_buzz_tree(tree):
+    new_tree = []
+    if tree.root == None :
+          return "empty tree"
+    else :
+            # if tree.root.value%3 == 0 and tree.root.value%5 ==0:
+            #          new_tree.append("FizzBuzz")
+            # elif tree.root.value%3 == 0 :
+            #           new_tree.append("Fizz")
+            # elif tree.root.value%5 == 0:
+            #            new_tree.append("Buzz")
+            def ordering(root):
+                if root.value%3 == 0 and root.value%5 ==0:
+                        new_tree.append("FizzBuzz")
+                elif root.value%3 == 0 :
+                        new_tree.append("Fizz")
+                elif root.value%5 == 0:
+                        new_tree.append("Buzz")
+                else :
+                    new_tree.append(str(root.value))
+                # if root.value%3 == 0 and root.value%5 ==0:
+                #         new_tree.append("FizzBuzz")
+                # elif root.value%3 == 0 :
+                #         new_tree.append("Fizz")
+                # elif root.value%5 == 0:
+                #         new_tree.append("Buzz")
+                if root.left:
+                    ordering(root.left)
+                if root.right:
+                    ordering(root.right)
+            ordering(tree.root)
+            return new_tree
+x = fizz_buzz_tree(aseel)
+print(x)
 
 
