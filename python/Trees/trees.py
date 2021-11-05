@@ -47,18 +47,18 @@ class binarytree:
                 self.values += [node.value]
                 return self.values
             return ordering(self.root)
-    def max_value(self):
-          self.values = []
-          if self.root == None:
-                return "empty tree"
-          def ordering(node):
-                self.values += [node.value]
-                if node.left:
-                    ordering(node.left)
-                if node.right:
-                    ordering(node.right)
-                return max(self.values)
-          return ordering(self.root)
+    # def max_value(self):
+    #       self.values = []
+    #       if self.root == None:
+    #             return "empty tree"
+    #       def ordering(node):
+    #             self.values += [node.value]
+    #             if node.left:
+    #                 ordering(node.left)
+    #             if node.right:
+    #                 ordering(node.right)
+    #             return max(self.values)
+    #       return ordering(self.root)
 
     def max_value(self):
         if self.root:
