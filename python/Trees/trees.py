@@ -60,6 +60,15 @@ class binarytree:
                 return max(self.values)
           return ordering(self.root)
 
+    def max_value(self):
+        if self.root:
+            return self.maxvalue(self.root)
+
+    def maxvalue(self ,node):
+        if node.right:
+            return self.maxvalue(node.right)
+        return node.value
+
 
 
 class binarysearchtree(binarytree):
@@ -103,16 +112,18 @@ aseel= binarysearchtree()
 if __name__ == '__main__':
 
    aseel.add(15)
-   aseel.add(20)
-   aseel.add(9)
+   aseel.add(14)
+   aseel.add(16)
+   aseel.add(13)
    aseel.add(17)
+
 #    aseel.add(3)
 # print(aseel.inorder())
 # print(aseel.postorder())
 # print(aseel.preorder())
 # print(aseel.Contains(6))
 # print(aseel.Contains(7))
-# print(aseel.max_value())
+print(aseel.max_value())
 def breadth_first(tree):
     list=[]
     if tree.root==None:
@@ -138,12 +149,7 @@ def fizz_buzz_tree(tree):
     if tree.root == None :
           return "empty tree"
     else :
-            # if tree.root.value%3 == 0 and tree.root.value%5 ==0:
-            #          new_tree.append("FizzBuzz")
-            # elif tree.root.value%3 == 0 :
-            #           new_tree.append("Fizz")
-            # elif tree.root.value%5 == 0:
-            #            new_tree.append("Buzz")
+
             def ordering(root):
                 if root.value%3 == 0 and root.value%5 ==0:
                         new_tree.append("FizzBuzz")
@@ -153,19 +159,30 @@ def fizz_buzz_tree(tree):
                         new_tree.append("Buzz")
                 else :
                     new_tree.append(str(root.value))
-                # if root.value%3 == 0 and root.value%5 ==0:
-                #         new_tree.append("FizzBuzz")
-                # elif root.value%3 == 0 :
-                #         new_tree.append("Fizz")
-                # elif root.value%5 == 0:
-                #         new_tree.append("Buzz")
+
                 if root.left:
                     ordering(root.left)
                 if root.right:
                     ordering(root.right)
             ordering(tree.root)
             return new_tree
-x = fizz_buzz_tree(aseel)
-print(x)
+# x = fizz_buzz_tree(aseel)
+# print(x)
 
 
+def odd_sum(tree):
+    odd_num = []
+    if tree.root == None :
+        return "empty tree"
+    def ordering(root):
+        if root.value%2 !=0 :
+            odd_num.append(root.value)
+
+        if root.left :
+            ordering(root.left)
+        if root.right:
+            ordering(root.right)
+    ordering(tree.root)
+    return sum(odd_num)
+# oddsum = odd_sum(aseel)
+# print(oddsum)
