@@ -17,6 +17,6 @@ PR Link : https://github.com/Aseelalsaqer/data-structures-and-algorithms/pull/33
 
 ## White Board CC18:
 
-<img src = "CC18.PNG">
+<img src = "CC18 fixed.PNG">
 
 PR Link : https://github.com/Aseelalsaqer/data-structures-and-algorithms/pull/34

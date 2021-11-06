@@ -123,7 +123,7 @@ if __name__ == '__main__':
 # print(aseel.preorder())
 # print(aseel.Contains(6))
 # print(aseel.Contains(7))
-print(aseel.max_value())
+# print(aseel.max_value())
 def breadth_first(tree):
     list=[]
     if tree.root==None:
@@ -144,30 +144,33 @@ def breadth_first(tree):
 # print(breadth_first(aseel))
 
 
-def fizz_buzz_tree(tree):
-    new_tree = []
-    if tree.root == None :
-          return "empty tree"
-    else :
 
-            def ordering(root):
-                if root.value%3 == 0 and root.value%5 ==0:
-                        new_tree.append("FizzBuzz")
-                elif root.value%3 == 0 :
-                        new_tree.append("Fizz")
-                elif root.value%5 == 0:
-                        new_tree.append("Buzz")
-                else :
-                    new_tree.append(str(root.value))
 
-                if root.left:
-                    ordering(root.left)
-                if root.right:
-                    ordering(root.right)
-            ordering(tree.root)
-            return new_tree
-# x = fizz_buzz_tree(aseel)
-# print(x)
+def replace(root):
+    if root % 3 == 0 and root % 5 == 0:
+        return "Fizz Buzz"
+    elif root % 3 == 0:
+        return "Fizz"
+    elif root % 5 == 0:
+        return "Buzz"
+    else:
+        return str(root)
+def fizz_buzz(k_ary):
+    new_k_ary = binarysearchtree()
+    def ordering(root):
+        if root:
+            node = Node(replace(root.value))
+            if root.left:
+                node.left = ordering(root.left)
+            if root.right:
+                node.right = ordering(root.right)
+            return node
+    new_k_ary.root = ordering(k_ary.root)
+    return new_k_ary
+k_tree = fizz_buzz(aseel)
+print(k_tree.root)
+print(k_tree.root.right.value)
+print(k_tree.root.left.value)
 
 
 def odd_sum(tree):

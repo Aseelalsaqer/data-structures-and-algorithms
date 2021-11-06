@@ -1,6 +1,7 @@
 from trees import __version__
 
-from Trees.trees import  binarysearchtree
+from Trees.trees import  binarysearchtree, fizz_buzz, helper, Node, binarytree
+
 
 
 
@@ -126,5 +127,42 @@ def test_value_max_2():
     expected = 7
     assert actual == expected
 
+# to replac the value with Fizz Buzz if value%5 == 0 and value%3 == 0
+def test_fizz_buzz_1():
+    aseel = binarysearchtree()
+    aseel.add(15)
+    aseel.add(12)
+    aseel.add(20)
+    expected = "Fizz Buzz"
+    actual = fizz_buzz(aseel).root.value
+    assert actual == expected
 
+# to replac the value with str(value)
+def test_fizz_buzz_2():
+    aseel = binarysearchtree()
+    aseel.add(15)
+    aseel.add(11)
+    aseel.add(20)
+    expected = "11"
+    actual = fizz_buzz(aseel).root.left.value
+    assert actual == expected
 
+# to replac the value with Fizz if value%3 == 0
+def test_fizz_buzz_3():
+    aseel = binarysearchtree()
+    aseel.add(15)
+    aseel.add(12)
+    aseel.add(20)
+    expected = "Fizz"
+    actual = fizz_buzz(aseel).root.left.value
+    assert actual == expected
+
+# to replac the value with Buzz if value%5 == 0
+def test_fizz_buzz_4():
+    aseel = binarysearchtree()
+    aseel.add(15)
+    aseel.add(12)
+    aseel.add(20)
+    expected = "Buzz"
+    actual = fizz_buzz(aseel).root.right.value
+    assert actual == expected
