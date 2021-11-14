@@ -111,7 +111,9 @@ class LinkedList:
         last = self.head
         while (last.nxt):
             last = last.nxt
+
         last.nxt =  new_node
+
 
 aseel = LinkedList()
 aseel.insert(2)
