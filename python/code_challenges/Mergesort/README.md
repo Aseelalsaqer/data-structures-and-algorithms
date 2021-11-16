@@ -2,6 +2,10 @@
 
 Track the Pesudo Code of mergesort .
 
+## White Boeard:
+
+<img src = "cc 27 white board.PNG">
+
 ## Approach & Efficiency
 
 O(n^2)
