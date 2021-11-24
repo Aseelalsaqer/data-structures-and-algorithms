@@ -38,4 +38,4 @@ hash: BigO = O(1)
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
 ## Solution
-<!-- Embedded whiteboard image -->
+<img src = "CC33.PNG">
