@@ -128,17 +128,32 @@ def left_join(ht1, ht2):
     return result
 
 
-ht1 = HashTable()
-ht1.add("aseel", 10)
-ht1.add("asel", 12)
-ht1.add("asl", 18)
+def checkString(str):
+    ht1 = HashTable()
+
+    for char in str:
+        if ht1.contains(char):
+            return False;
+        else :
+            ht1.add(char, char);
+    return True;
 
 
-ht2 = HashTable()
-ht2.add("aseel", 20)
-ht2.add("asxl", 12)
-ht2.add("asl", 16)
+str = "I love cats"
+print(checkString(str.replace(" ", "")))
 
-actual = left_join(ht1, ht2)
-print(actual)
+
+# ht1 = HashTable()
+# ht1.add("aseel", 10)
+# ht1.add("asel", 12)
+# ht1.add("asl", 18)
+
+
+# ht2 = HashTable()
+# ht2.add("aseel", 20)
+# ht2.add("asxl", 12)
+# ht2.add("asl", 16)
+
+# actual = left_join(ht1, ht2)
+# print(actual)
 
