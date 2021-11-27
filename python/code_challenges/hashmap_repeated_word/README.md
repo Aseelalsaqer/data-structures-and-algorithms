@@ -4,7 +4,7 @@ PR Link : https://github.com/Aseelalsaqer/data-structures-and-algorithms/pull/39
 Find the first repeated word in a book using hash table
 
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
+<img src = "CC31.PNG">
 
 ## Approach & Efficiency
 time : o(n)
