@@ -7,3 +7,5 @@ to write methods for graph data structure.
 ## API's:
 
 AddNode() AddEdge() GetNodes() GetNeighbors() Size()
+
+test : python/tests/test_graph.py
