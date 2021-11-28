@@ -33,7 +33,7 @@ class HashTable:
 
         """
         self.__size = size
-        self.__buckets = [None] * size
+        self.array = [None] * size
 
     def __hash(self, key):
         """
@@ -52,10 +52,11 @@ class HashTable:
 
         index = self.__hash(key)
 
-        if not self.__buckets[index]:
-          self.__buckets[index] = LinkedList()
+        if not self.array[index]:
+          self.array[index] = LinkedList()
         my_value = [key,value]
-        self.__buckets[index].insert(my_value)
+        self.array[index].insert(my_value)
+        return self.array[index]
 
     def get(self, key):
       """
@@ -67,9 +68,9 @@ class HashTable:
 
       index = self.__hash(key)
 
-      if self.__buckets[index]:
+      if self.array[index]:
 
-        linked_list = self.__buckets[index]
+        linked_list = self.array[index]
         current = linked_list.head
         while current:
 
@@ -90,21 +91,69 @@ class HashTable:
         Return : True , False
         """
         index = self.__hash(key)
-        if self.__buckets[index] is None:
+        if self.array[index] is None:
             return False
 
-        current = self.__buckets[index].head
+        current = self.array[index].head
         while (current):
             key_inside = current.value[0]
             if key_inside == key:
                 return True
             current = current.next
         return False
-ht = HashTable()
-ht.add('aseel', 10)
-ht.add('asel', 12)
-ht.add('asl', 18)
+# ht = HashTable()
+# ht.add('aseel', 10)
+# ht.add('asel', 12)
+# ht.add('asl', 18)
 
-print(ht.get('asl'))
+# print(ht.get('asl'))
 
-print(ht.contains('aseel'))
+# print(ht.contains('aseel'))
+def left_join(ht1, ht2):
+    result = []
+    for i in ht1.array:
+        if i:
+            lj = []
+            current_value = i.head
+            while current_value:
+                lj.append(current_value.value[0])
+                lj.append(current_value.value[1])
+                if ht2.contains(current_value.value[0]):
+                    lj.append(ht2.get(current_value.value[0]))
+                else:
+                    lj.append(None)
+                current_value = current_value.next
+
+            result.append(lj)
+    return result
+
+
+def checkString(str):
+    ht1 = HashTable()
+
+    for char in str:
+        if ht1.contains(char):
+            return False;
+        else :
+            ht1.add(char, char);
+    return True;
+
+
+str = "I love cats"
+print(checkString(str.replace(" ", "")))
+
+
+# ht1 = HashTable()
+# ht1.add("aseel", 10)
+# ht1.add("asel", 12)
+# ht1.add("asl", 18)
+
+
+# ht2 = HashTable()
+# ht2.add("aseel", 20)
+# ht2.add("asxl", 12)
+# ht2.add("asl", 16)
+
+# actual = left_join(ht1, ht2)
+# print(actual)
+
