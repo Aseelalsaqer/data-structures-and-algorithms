@@ -20,10 +20,10 @@ class Queue:
         self.dq = deque()
 
     def enqueue(self, value):
-        self.dq.appendLeft(value)
+        self.dq.appendleft(value)
 
     def dequeue(self):
-        self.dq.pop()
+        print(type(self.dq.pop()))
 
     def __len__(self):
         return len(self.dq)
@@ -56,9 +56,9 @@ class Stack:
 
 class Edge:
     """
-    a class for Adding a new edge between two nodes in the graph
+    a class for Adding a new edge between two result in the graph
     If specified, assigning a weight to the edge
-    Arguments: 2 nodes to be connected by the edge, weight (optional)
+    Arguments: 2 result to be connected by the edge, weight (optional)
     Returns: nothing
 
   """
@@ -99,11 +99,11 @@ class Graph:
         edge = Edge(end_vertex, weight)
         self.__adjacency_list[start_vertex].append(edge)
 
-    def get_nodes(self):
+    def get_result(self):
         """
-    Method to get all nodes in Graph
+    Method to get all result in Graph
     Arguments: None
-    return: All nodes
+    return: All result
     """
         return self.__adjacency_list.keys()
 
@@ -111,42 +111,47 @@ class Graph:
         """ """
         return self.__adjacency_list.get(vertex, [])
 
-<<<<<<< HEAD
-
-
-
-
-# graph = Graph()
-# graph.add_node(5)
-# graph.add_node(4)
-# graph.add_node(3)
-# graph.add_node(2)
-# graph.add_node(1)
-# graph.add_edge(1, 3)
-# graph.add_edge(4, 2)
-# graph.add_edge(5, 3)
-# graph.add_edge(1, 5)
-# graph.add_edge(2, 4)
-
-# print(graph.get_neighbors(4))
-=======
     def breadth_first_search(self, start_vertex, action=(lambda vertex: None)):
-        queue = Queue()
+        queue = []
         visited = set()
+        result = []
 
-        queue.enqueue(start_vertex)
+        queue.append(start_vertex)
         visited.add(start_vertex)
 
         while len(queue):
-            current_vertex = queue.dequeue()
-            action(current_vertex)
 
-            neighbors = self.get_neigbors(current_vertex)
+                current_vertex = queue.pop(0)
+                result.append(current_vertex.value)
+                action(current_vertex)
+                neighbors = self.get_neighbors(current_vertex)
 
-            for edge in neighbors:
-                neighbor = edge.vertex
+                for edge in neighbors:
+                    neighbor = edge.vertex
+                    if neighbor not in visited:
+                        visited.add(neighbor)
+                        queue.append(neighbor)
 
-                if neighbour not in visited:
-                    visited.add(neighbor)
-                    queue.enqueue(neighbour)
->>>>>>> c20c62ae437d031d4fe31d4791f2e5d9a9b81cf0
+        return result
+graph = Graph()
+
+
+Pandora = graph.add_node('Pandora')
+Arendelle = graph.add_node('Arendelle')
+Metroville = graph.add_node('Metroville')
+Monstroplolis = graph.add_node('Monstroplolis')
+Narnia = graph.add_node('Narnia')
+Naboo = graph.add_node('Naboo')
+
+graph.add_edge(Pandora,Arendelle)
+graph.add_edge(Arendelle,Metroville)
+graph.add_edge(Arendelle,Monstroplolis)
+graph.add_edge(Metroville,Monstroplolis)
+graph.add_edge(Metroville,Narnia)
+graph.add_edge(Metroville,Naboo)
+graph.add_edge(Monstroplolis,Naboo)
+
+
+
+
+print(graph.breadth_first_search(Pandora))

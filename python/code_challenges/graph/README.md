@@ -9,3 +9,8 @@ to write methods for graph data structure.
 AddNode() AddEdge() GetNodes() GetNeighbors() Size()
 
 test : python/tests/test_graph.py
+
+
+
+## Whiteboard Process
+<img src = "CC36.PNG">
