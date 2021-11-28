@@ -90,3 +90,21 @@ def test_get_neighbors():
     assert neighbor_edge.vertex.value == 'banana'
 
     assert neighbor_edge.weight == 44
+
+def test_breadth_one():
+    graph = Graph()
+    Pandora = graph.add_node('Pandora')
+    Arendelle = graph.add_node('Arendelle')
+    Metroville = graph.add_node('Metroville')
+    Monstroplolis = graph.add_node('Monstroplolis')
+    Narnia = graph.add_node('Narnia')
+    Naboo = graph.add_node('Naboo')
+
+    graph.add_edge(Pandora,Arendelle)
+    graph.add_edge(Arendelle,Metroville)
+    graph.add_edge(Arendelle,Monstroplolis)
+    graph.add_edge(Metroville,Monstroplolis)
+    graph.add_edge(Metroville,Narnia)
+    graph.add_edge(Metroville,Naboo)
+    graph.add_edge(Monstroplolis,Naboo)
+    assert graph.breadth_first_search(Pandora) == ['Pandora', 'Arendelle', 'Metroville', 'Monstroplolis', 'Narnia', 'Naboo']
