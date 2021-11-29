@@ -29,3 +29,12 @@ Display the collection
 ## Approach & Efficiency
 time = O(n^2)
 
+# Challenge Summary
+
+
+## Whiteboard Process
+<img src = "CC37.PNG">
+
+## Approach & Efficiency
+
+
