@@ -30,11 +30,19 @@ Display the collection
 time = O(n^2)
 
 # Challenge Summary
-
+Write a function called business trip
+Arguments: graph, array of city names
+Return: cost or null
 
 ## Whiteboard Process
 <img src = "CC37.PNG">
 
 ## Approach & Efficiency
+Big O :
+Time = O(n^2)
+space = O(n)
+
+## test :
+<img src = "test37.PNG">
 
 
