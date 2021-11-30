@@ -152,6 +152,24 @@ class Graph:
             path = False
             return f'{path},${total}'
         return f'{path},${total}'
+
+    def depthfirst(self, ver):
+        finalresult = []
+        finalresult.append(ver.value)
+        if ver not in self.__adjacency_list:
+            return 'vertex not found in graph '
+        elif self.__adjacency_list[ver] == []:
+            return 'verteix has no adjecent'
+        def oredering(ver):
+            neighbors = self.__adjacency_list[ver]
+            for edge in neighbors:
+                vertces = edge.vertex.value
+
+                if vertces not in finalresult:
+                    finalresult.append(vertces)
+                    oredering(edge.vertex)
+        oredering(ver)
+        return finalresult
 # graph = Graph()
 
 
@@ -174,30 +192,46 @@ class Graph:
 
 
 # print(graph.breadth_first_search(Pandora))
-G4 = Graph()
-pandora = G4.add_node('pandora')
-arendelle = G4.add_node('arendelle')
-metroville = G4.add_node('metroville')
-narina = G4.add_node('narina')
-naboo = G4.add_node('naboo')
-manstropolis = G4.add_node('manstropolis')
-G4.add_edge(pandora, arendelle, 150)
-G4.add_edge(pandora, metroville, 82)
-G4.add_edge(arendelle, pandora, 150)
-G4.add_edge(arendelle, metroville, 99)
-G4.add_edge(arendelle, manstropolis, 42)
-G4.add_edge(metroville, pandora, 82)
-G4.add_edge(metroville, arendelle, 99)
-G4.add_edge(metroville, manstropolis, 105)
-G4.add_edge(metroville, naboo, 26)
-G4.add_edge(metroville, narina, 37)
-G4.add_edge(narina, metroville, 37)
-G4.add_edge(narina, naboo, 250)
-G4.add_edge(naboo, narina, 250)
-G4.add_edge(naboo, metroville, 26)
-G4.add_edge(naboo, manstropolis, 73)
-G4.add_edge(manstropolis, naboo, 73)
-G4.add_edge(manstropolis, arendelle, 42)
-G4.add_edge(manstropolis, metroville, 105)
+# G4 = Graph()
+# pandora = G4.add_node('pandora')
+# arendelle = G4.add_node('arendelle')
+# metroville = G4.add_node('metroville')
+# narina = G4.add_node('narina')
+# naboo = G4.add_node('naboo')
+# manstropolis = G4.add_node('manstropolis')
+# G4.add_edge(pandora, arendelle, 150)
+# G4.add_edge(pandora, metroville, 82)
+# G4.add_edge(arendelle, pandora, 150)
+# G4.add_edge(arendelle, metroville, 99)
+# G4.add_edge(arendelle, manstropolis, 42)
+# G4.add_edge(metroville, pandora, 82)
+# G4.add_edge(metroville, arendelle, 99)
+# G4.add_edge(metroville, manstropolis, 105)
+# G4.add_edge(metroville, naboo, 26)
+# G4.add_edge(metroville, narina, 37)
+# G4.add_edge(narina, metroville, 37)
+# G4.add_edge(narina, naboo, 250)
+# G4.add_edge(naboo, narina, 250)
+# G4.add_edge(naboo, metroville, 26)
+# G4.add_edge(naboo, manstropolis, 73)
+# G4.add_edge(manstropolis, naboo, 73)
+# G4.add_edge(manstropolis, arendelle, 42)
+# G4.add_edge(manstropolis, metroville, 105)
 
-print(G4.businesstrip([metroville,pandora]))
+# print(G4.businesstrip([metroville,pandora]))
+
+G5 = Graph()
+a = G5.add_node('a')
+b = G5.add_node('b')
+c = G5.add_node('c')
+d = G5.add_node('d')
+e = G5.add_node('e')
+f = G5.add_node('f')
+G5.add_edge(a, d)
+G5.add_edge(a, c)
+G5.add_edge(c, a)
+G5.add_edge(b, d)
+G5.add_edge(d, b)
+G5.add_edge(d, e)
+print(G5.depthfirst(a))
+

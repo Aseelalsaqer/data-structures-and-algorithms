@@ -46,3 +46,24 @@ space = O(n)
 <img src = "test37.PNG">
 
 
+# Depth First Traversal
+method for the Graph class:
+
+Name: Depth first
+Arguments: Node (Starting point of search)
+Return: A collection of nodes in their pre-order depth-first traversal order
+Program output: Display the collection
+
+
+
+## Approach & Efficiency
+Big O :
+Time = O(n^2)
+Space - O(n)
+
+## Solution
+<img src = "CC38.PNG">
+
+
+## test :
+<img src = "test38.PNG">
