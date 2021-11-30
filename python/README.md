@@ -86,3 +86,6 @@ From the root of the `data-structures-and-algorithms/python` folder, execute the
 
 **CC3**
 <img src = "cc3.PNG">
+
+**CC6**
+<img src = "CC6.PNG">
