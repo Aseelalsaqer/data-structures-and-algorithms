@@ -24,18 +24,26 @@ hash: BigO = O(1)
 - conatin Argument: key Returns True , False .
 
 ## test :
-<img src = "tset33.PNG">
+<img src = "test30.PNG">
 
 
 #######################################
 # Hashmap LEFT JOIN
-<!-- Short summary or background information -->
+Write a function that LEFT JOINs two hashmaps into a single data structure.
 
-## Challenge
-<!-- Description of the challenge -->
+Write a function called left join
+Arguments: two hash maps
+The first parameter is a hashmap that has word strings as keys, and a synonym of the key as values.
+The second parameter is a hashmap that has word strings as keys, and antonyms of the key as values.
+Return: The returned data structure that holds the results is up to you. It doesn’t need to exactly match the output below, so long as it achieves the LEFT JOIN logic
+
 
 ## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+Big O :
+Time = O(n^2)
 
 ## Solution
 <img src = "CC33.PNG">
+
+## test :
+<img src = "test30.PNG">
